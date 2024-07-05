@@ -1,106 +1,61 @@
-// let date = new Date()
-// let cnvrt = date.toString()
-// let month = cnvrt.slice(4, 7)
-// let day = cnvrt.slice(0, 4)
-// let dateCopy = date.slice(0, 4)
-// document.write(dateCopy)
-// document.write(typeof date)
-// document.write(new Date())
+/*//now we explored date object
 
-// document.write(date.getDate() + '<br>')
+let today = new Date()
+console.log(today)
 
-// month k lye cnvrt krna prta h
-// document.write(date.getMonth())
-// document.write(month + '<br>')
+let birthday = new Date("nov 14, 2003")
+console.log(birthday)
+let birthday2 = new Date("11 14, 2003")
+console.log(birthday2)
+let birthday3 = new Date("11 14, 2003")
+console.log(birthday3.getMonth())
 
-// document.write(date.getFullYear() + '<br>')
-// document.write(date.getHours(), ' : ')
-// document.write(date.getMinutes(), ' : ')
-// document.write(date.getSeconds(), '<br>')
-// day k lye bh cnvrt krna prta h qk ye dnon strings hn 
-// document.write(date.getDay())
-// document.write(day)
+// now we observe how the date object work when we give our date to it.
 
-// my age calculator:
-// let yearOfBirth = prompt('Enter your year of birth')
-// let year = date.getFullYear()
+let month = ["jan 1", "feb 2", "march 3", "april 4", "may 5", "june 6", "july 7", "aug 8", "sep 9", "oct 10", "nov 11", "dec 12"]
 
-// let age = year - yearOfBirth
-// confirm('Your current age is ' + age)
+console.log(month)
+console.log(`nov 11 : ${month.indexOf("nov 11")}`)*/
 
-// age calculator in class by sr:
+// age calculator Assignment. // I have also built calculator with the help of dateInput but when I understand the ISO string .max, and "T"[0] then I include this method.
 
-// *
-// let date = new Date() // ab yhn ye lkhne se puri ki puri date aarh hgi yni jsmn 10 methods
-// saare ek sth aarh hnge thk h. lkn hmn kia krna h hmn is date mn se srf time nklna h with
-// hours, min, sec, milisec. t iska kia method th iska method th .time
+/*accessing html elements */
+let dateInp = document.querySelector(".dateInp")
+let btn = document.querySelector(".calculateBtn")
+let ageContainer = document.querySelector(".ageContainer")
+let userAgeDiv = document.querySelector(".userAgeDiv")
 
-// *
-// let dateTime = date.getTime() //t ab yhn pe hmne time t nkl lia h lkn ye time khn se de rh h
-// ye de rh h 1970 se utha k abhi tk jtna bh time hwa h wo utha k de rh lkn mujhe whn se time
-// nh chahiye mn ise kh rh hn k apke ps jo time aarh h mujhe whn se nh blke mn jhn se paida
-// hwi hn mujhe whn se time do ab iske lye mujhe zhir h isko apni DOB btani pregi or ye mn alg
-// variable mn bnaoungi qk mujhe 2 varbls of time ki need t pregi na ek mn mri dob hgi or ek
-// mn total ab tk jtna time gzra wo hga 
+/*create new date object */
+let today = new Date()
+let todayMiliSec = today.getTime()
 
-// *
-// let dob = new Date('14 nov, 2003')
-// let dobTime = dob.getTime()
+/*calculate btn */
+btn.addEventListener("click", () => {
+    let dateStr = dateInp.value
+    if(dateStr.length === 0) {
+        alert("Please Enter Your Date of birth!")
+    }
 
-// document.write(dateTime + '<br>')
-// document.write(dobTime, '<br>', '<br>')
+    else{
+        let userDateInp = dateStr
 
-// ab simple c bt h mne total time or mra apna time get krlia mn total mn sse apne wle ko minus
-// krwa dti hn t mujhe jo bch gya wo mra time hga jo mujhe pta chl jaega
+        let userDOB = new Date(userDateInp)
+        let userDOBMiliSec = userDOB.getTime()
 
-// *
-// let minus = dateTime - dobTime
-// document.write(minus, '<br>')  // ab yhn mri age t aagai h lkn do msle hgae hn ek t ye k ye hr milisec
-// pe brh rh h qk mn hr milisec pe bri bh t hrh hn na or dsra ye k ye mri age t mujhe de rh h
-// lkn mili sec k hisab se k mn ktne mlisec bri hgai hun lkn hm t salon mn age ko calculate
-// krte hn t ab mn kia krngi mn in mili sec ko years mn lke jaoungi yni cnvrt krngi.
+        let finalMiliSec = todayMiliSec - userDOBMiliSec
+     
+        let formula = finalMiliSec / (1000 * 60 * 60 * 24 * 365)
+    
+        let userAge = Math.floor(formula)
 
-// *
-// let ageFormula = minus / (1000 * 60 * 60 * 24 * 365)
-// let age = Math.floor(ageFormula)
-// document.write('Your age is: ', age)
+        if(userAge > 0) {
+            ageContainer.classList.remove("hide")
+            ageContainer.classList.add("active")
+            userAgeDiv.innerText = userAge
+        }
 
-// let dob = new Date('14 aug, 1947')
-// let dobMili = dob.getTime()
-// document.write(dobMili, '<br>')
-
-// let date = new Date()
-// let dateMili = date.getTime()
-// document.write(dateMili, '<br>')
-
-// let minus = dateMili - dobMili
-// let formula = minus / (1000 * 60 * 60 * 24 * 365)
-// let age = Math.floor(formula)
-// document.write(age)
-
-
-
-
-// assignment:
-
-// ask user's age then tell him his age if he tells the invalid age the code will tell him
-
-// let pro = prompt('Enter your date of birth')
-
-// let date = new Date()
-// let dateMili = date.getTime()
-
-// let dob = new Date (pro)
-// let dobMili = dob.getTime()
-
-// let minus = dateMili - dobMili
-// let formula = minus / (1000 * 60 * 60 * 24 * 365)
-// let age = Math.floor(formula)
-
-// if (age >= 0) {
-//     alert('your age is : ' + age)
-// }
-
-// else {
-//     alert('Invalid age')
-// }
+        else{
+            alert("invalid age")            
+        }
+    }
+})
