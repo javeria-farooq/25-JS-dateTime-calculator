@@ -1,0 +1,158 @@
+/* age calculator Assignment */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main{
+    background-color: rgb(161, 6, 245);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 150px;
+    gap: 20px;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.contentContainer h1{
+    font-size: 40px;
+    color: white;
+}
+
+.contentContainer .ageHead{
+    color: yellow;
+}
+
+.dateContainer{
+    background-color: rgba(255, 255, 255, .4);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 48%;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.dateContainer .dateInp,
+.dateContainer .calculateBtn{
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.dateContainer .dateInp{
+    width: 100%;
+}
+
+.dateContainer .calculateBtn{
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.ageContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+}
+
+.userAgeDiv{
+    color: yellow;
+}
+
+.active{
+    display: flex;
+}
+
+.hide{
+    display: none;
+}
+
+@media (max-width: 990px) {
+    .dateContainer{
+        width: 60%;
+    }
+
+    main{
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 795px) {
+
+    main{
+        padding-left: 80px;
+    }
+
+    .dateContainer{
+        width: 80%;
+    }
+}
+
+@media (max-width: 550px) {
+    main{
+        padding-left: 0px;
+        align-items: center;
+    }
+
+    .contentContainer{
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contentContainer h1{
+        font-size: 30px;
+    }
+
+    .dateContainer{
+        padding: 15px;
+        border-radius: 8px;
+        width: 85%;
+        gap: 10px;
+    }
+    
+    .dateContainer .dateInp,
+    .dateContainer .calculateBtn{
+        font-size: 17px;
+        padding: 5px;
+    }
+    
+    .ageContainer{
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contentContainer h1{
+        font-size: 25px;
+    }
+
+    .dateContainer{
+        padding: 10px;
+        width: 90%;
+    }
+    
+    .dateContainer .dateInp,
+    .dateContainer .calculateBtn{
+        font-size: 15px;
+    }
+}
